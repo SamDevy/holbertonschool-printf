@@ -10,6 +10,7 @@ int print_number(int n)
 {
 	int count = 0;
 	long num = n;
+
 	if (num < 0)
 	{
 		count += _putchar('-');
