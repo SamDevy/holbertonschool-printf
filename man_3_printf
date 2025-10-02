@@ -1,0 +1,186 @@
+.TH PRINTF 1 "October 2025" "Version 1.0" "Holberton School Projects"
+.SH NAME
+_printf \- Custom implementation of the standard printf function
+.SH SYNOPSIS
+.B int _printf(const char *format, ...);
+.br
+.B int _putchar(char c);
+.br
+.B int print_string(char *str);
+.br
+.B int print_number(int n);
+.SH DESCRIPTION
+This project implements a custom printf function that mimics the behavior of the standard
+library printf function. It supports basic format specifiers and handles variable
+arguments using
+.I stdarg.h .
+.SH FILES
+.TP
+.B _printf.c
+Main printf function implementation
+.TP
+.B _putchar.c
+Helper function to write single characters
+.TP
+.B print_string.c
+Function to print strings
+.TP
+.B print_number.c
+Function to print integers (recursive)
+.TP
+.B main.h
+Header file with function prototypes
+.TP
+.B main.c
+Test file demonstrating usage
+.TP
+.B a.out
+Compiled executable
+.SH FUNCTIONS
+.TP
+.B _printf(const char *format, ...)
+Custom printf implementation.
+.br
+Parameters:
+.br
+\- format: Format string containing text and format specifiers
+.br
+\- ...: Variable number of arguments to be formatted
+.br
+Return: Number of characters printed, or \-1 on error
+.br
+Supported format specifiers: %c, %s, %d, %i, %%
+.nf
+Example:
+    _printf("Hello %s, you are %d years old\\n", "John", 25);
+    Output: Hello John, you are 25 years old
+.fi
+.TP
+.B _putchar(char c)
+Writes a single character to stdout.
+.br
+Parameters: c \- Character to be printed
+.br
+Return: Always 1
+.nf
+Example:
+    _putchar('A');
+    Output: A
+.fi
+.TP
+.B print_string(char *str)
+Prints a null-terminated string.
+.br
+Parameters: str \- String to be printed (can be NULL)
+.br
+Return: Number of characters printed
+.br
+If str is NULL, prints "(null)".
+.nf
+Example:
+    print_string("Hello World");
+    Output: Hello World
+
+    print_string(NULL);
+    Output: (null)
+.fi
+.TP
+.B print_number(int n)
+Recursively prints an integer.
+.br
+Parameters: n \- Integer to be printed
+.br
+Return: Number of characters printed
+.br
+Handles negative numbers and recursion for digit printing.
+.nf
+Example:
+    print_number(1234);
+    Output: 1234
+
+    print_number(-567);
+    Output: -567
+.fi
+.SH COMPILATION AND USAGE
+.nf
+1. Compile the project:
+   gcc -Wall -Wextra -Werror -pedantic -std=gnu89 *.c -o printf
+
+2. Run the test program:
+   ./printf
+
+3. Expected output from main.c:
+   Test %d: 1234
+   Test %i: -5678
+   Test %c: A
+   Test %s: Hello
+   Test %: %
+.fi
+.SH FORMAT SPECIFIER EXAMPLES
+.TP
+.B %c
+Character
+.nf
+_printf("Character: %c\\n", 'X');
+Output: Character: X
+.fi
+.TP
+.B %s
+String
+.nf
+_printf("String: %s\\n", "Hello World");
+Output: String: Hello World
+.fi
+.TP
+.B %d
+Decimal integer
+.nf
+_printf("Number: %d\\n", 42);
+Output: Number: 42
+.fi
+.TP
+.B %i
+Integer
+.nf
+_printf("Integer: %i\\n", -99);
+Output: Integer: -99
+.fi
+.TP
+.B %%
+Literal percent sign
+.nf
+_printf("Percentage: 50%%\\n");
+Output: Percentage: 50%
+.fi
+.SH ERROR HANDLING
+The _printf function returns \-1 in these cases:
+.TP
+1.
+Format string is NULL
+.TP
+2.
+Format string is "%" only (no specifier)
+.TP
+3.
+Format string ends with "%" (incomplete specifier)
+.SH FEATURES
+.TP
+✓ Character printing (%c)
+.TP
+✓ String printing (%s) with NULL handling
+.TP
+✓ Integer printing (%d, %i) with negative number support
+.TP
+✓ Literal percent sign (%%)
+.TP
+✓ Recursive integer printing
+.TP
+✓ Variable argument handling
+.TP
+✓ Error checking and validation
+.TP
+✓ Custom _putchar implementation
+.SH AUTHOR
+Hussam Munif Almutairi & Nouf Saud Almutairi
+.SH VERSION
+1.0 \- Basic printf functionality with %c, %s, %d, %i, and %% specifiers
