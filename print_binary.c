@@ -2,7 +2,7 @@
 int print_binary(unsigned int n)
 {
     int count = 0;
-nt print_binary(unsigned int n)
+int print_binary(unsigned int n)
 {
     int count = 0;
 
@@ -16,3 +16,4 @@ return (_putchar('0'));
 }
 îreturn count;
 }
+
