@@ -12,5 +12,5 @@ int count = 0;
         count += _putchar(*str);
         str++;
     }
-    return count;
+    return (count);
 }
