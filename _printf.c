@@ -29,7 +29,7 @@ count += _putchar(*format);
 }
 }
 else
-    count += _putchar(*format);
+count += _putchar(*format);
 format++;
 }
 va_end(args);
