@@ -1,4 +1,3 @@
-// _printf.c (modified using recursion helpers)
 #include "main.h"
 #include <stdarg.h>
 
@@ -6,9 +5,8 @@
  * _printf - Custom printf function that prints formatted output to stdout.
  * @format: Format string containing the text and format specifiers.
  *          Supported specifiers: %c, %s, %%, %d, %i, %b, %u, %o, %x, %X
- *          Returns -1 if format is NULL or invalid (trailing '%').
  *
- * Return: number of characters printed (or -1 on error)
+ * Return: Number of characters printed, or -1 if format is NULL or invalid
  */
 int _printf(const char *format, ...)
 {
@@ -19,7 +17,6 @@ int _printf(const char *format, ...)
 		return (-1);
 
 	va_start(args, format);
-
 	while (*format)
 	{
 		if (*format == '%')
@@ -30,7 +27,6 @@ int _printf(const char *format, ...)
 				va_end(args);
 				return (-1);
 			}
-
 			if (*format == 'c')
 				count += _putchar(va_arg(args, int));
 			else if (*format == 's')
@@ -51,7 +47,6 @@ int _printf(const char *format, ...)
 				count += print_hex_upper(va_arg(args, unsigned int));
 			else
 			{
-				/* Unknown specifier: print literally "%<char>" */
 				count += _putchar('%');
 				count += _putchar(*format);
 			}
@@ -60,10 +55,8 @@ int _printf(const char *format, ...)
 		{
 			count += _putchar(*format);
 		}
-
 		format++;
 	}
-
 	va_end(args);
 	return (count);
 }
