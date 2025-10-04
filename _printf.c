@@ -1,12 +1,13 @@
+/* _printf.c */
 #include "main.h"
 #include <stdarg.h>
 
 /**
- * _printf - Custom printf function that prints formatted output to stdout.
- * @format: Format string containing the text and format specifiers.
- *          Supported specifiers: %c, %s, %%, %d, %i, %b, %u, %o, %x, %X
+ * _printf - Custom printf function that prints formatted output to stdout
+ * @format: Format string with text and format specifiers
+ *           Supported: %c, %s, %%, %d, %i, %b, %u, %o, %x, %X
  *
- * Return: Number of characters printed, or -1 if format is NULL or invalid
+ * Return: number of characters printed, or -1 if format is NULL or invalid
  */
 int _printf(const char *format, ...)
 {
